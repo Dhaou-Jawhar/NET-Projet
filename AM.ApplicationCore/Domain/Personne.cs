@@ -8,19 +8,21 @@ namespace AM.ApplicationCore.Domain
 {
     public class Personne
     {
-        int id;
-        string prenom;
-        string nom;
-        DateTime dateNaissance;
-        string email;
-        string password;
-        string confirmPassword;
-
         public int Id
         {
-            get { return id; }
-            set { id = value; }
+            get;
+            set;
         }
+        /* prop + double Tabulation = public int MyProperty { get; set; } */
+
+        public string nom { get; set; }
+        public string prenom { get; set; }
+        public DateTime dateNaissance { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public string confirmPassword { get; set; }
+        
+
     }
 
 }
