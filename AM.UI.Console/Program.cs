@@ -75,3 +75,113 @@ Personne c = new Conducteur();
 p.GetMyType();
 c.GetMyType();
 
+
+/*Créer un objet non initialisé de type Plane en utilisant le constructeur non paramétré de la
+classe, puis initialiser ses attributs à travers leurs propriétés.*/
+
+Plane pl = new Plane();
+{
+    pl.Capacity = 123;
+    pl.ManualFactureDate= DateTime.Now;
+    pl.PlaneId= 3;
+    pl.PlaneType = PlaneType.Boing ;
+}
+Console.WriteLine("-------[Question 7]-------");
+Console.WriteLine(pl);
+
+/*Quest 8*/
+//Plane avion = new Plane(PlaneType.Airbus,300,DateTime.Now);
+//Console.WriteLine(avion);
+
+Plane avion2 = new Plane()
+{
+    Capacity = 350,
+    ManualFactureDate = DateTime.Now,
+    PlaneId = 4,
+    PlaneType = PlaneType.Airbus
+};
+Console.WriteLine("-------[Question 8 et 9]-------");
+Console.WriteLine(avion2);
+
+
+
+
+/*III Le Polymorphisme*/
+/* 10 ) a- */
+Passenger pass = new Passenger()
+{
+    BirthDate = DateTime.Now,
+    PasseportNumber = 95332,
+    EmailAddress = "test@esprit.tn",
+    FirstName = "Dhaou",
+    LastName = "Jawhar",
+    TelNumber = 24232423
+};
+
+Console.WriteLine("-------[Question 10 : a ) ]-------");
+bool result = pass.CheckProfile2("Dhaou", "Jawhar");
+
+if (result)
+{
+    Console.WriteLine("Profile matches");
+}
+else
+{
+    Console.WriteLine("Profile does not match");
+}
+
+/* 10 ) b- */
+
+/*Juste True or false affichage */
+Console.WriteLine("-------[Question 10 : b ) ]-------");
+Console.WriteLine(pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn"));
+
+
+
+
+/* 10 ) c- */
+Console.WriteLine("-------[Question 10 : c ) ]-------");
+bool result1 = pass.CheckProfile2("Dhaou", "Jawhar");
+
+if (result1)
+{
+    Console.WriteLine("Profile matches( 2 param )");
+}
+else
+{
+    Console.WriteLine("Profile does not match( 2 param )");
+}
+
+bool result2 = pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn");
+
+if (result2)
+{
+    Console.WriteLine("Profile matches (3 parameters)");
+}
+else
+{
+    Console.WriteLine("Profile does not match (3 parameters)");
+}
+
+
+/*11. Polymorphysme par héritage*/
+
+/* a ) */
+Console.WriteLine("-------[Question 11 : a & b & c ) ]-------");
+Passenger psst = new Passenger();
+psst.PassengerType();
+
+/* b )  et c ) */
+Staff st = new Staff();
+Traveller tr = new Traveller();
+st.PassengerType();
+tr.PassengerType();
+
+
+
+
+
+
+
+
+
