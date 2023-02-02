@@ -38,4 +38,13 @@
 using AM.ApplicationCore.Domain;
 
 Personne p = new Personne();
+p.Id = 11;
+p.nom = "Dhaou";
+p.prenom = "Jawhar";
+p.email = "dhaou.jawhar@esprit.tn";
+p.dateNaissance= new DateTime(2000, 12, 25);
+p.password = "1234";
+p.confirmPassword = "1234";
+
+Console.WriteLine(p);
 
