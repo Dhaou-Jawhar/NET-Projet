@@ -38,4 +38,40 @@
 using AM.ApplicationCore.Domain;
 
 Personne p = new Personne();
+p.Id = 11;
+p.nom = "Dhaou";
+p.prenom = "Jawhar";
+p.email = "dhaou.jawhar@esprit.tn";
+p.dateNaissance= new DateTime(2000, 12, 25);
+p.password = "1234";
+p.confirmPassword = "1234";
+
+Console.WriteLine(p);
+
+/*constructeur avec parametre*/
+Personne p1 = new Personne("nom", "prenom",DateTime.Now,"email","password","confirmPassword" );
+Console.WriteLine(p1);
+
+
+/*Initialisateur d'objet*/
+Personne p2 = new Personne()
+{
+    email="email",
+    nom="Dhaou",
+    prenom="Jawhar",
+    confirmPassword="1234",
+    dateNaissance=DateTime.Now,
+    password="1234"
+};
+
+//Conducteur c = new Conducteur();
+//p.GetMyType();
+//c.GetMyType();
+
+/* c. et p. ( prend le mm methode dans personne ) */
+/*pour fixer le problème ( override dans la methode de la classe fils et vitual dans la methode de classe mere ) */
+/*redifinition des methodes */
+Personne c = new Conducteur();
+p.GetMyType();
+c.GetMyType();
 
