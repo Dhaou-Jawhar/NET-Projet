@@ -70,6 +70,7 @@ Personne p2 = new Personne()
 
 /* c. et p. ( prend le mm methode dans personne ) */
 /*pour fixer le problème ( override dans la methode de la classe fils et vitual dans la methode de classe mere ) */
+/*redifinition des methodes */
 Personne c = new Conducteur();
 p.GetMyType();
 c.GetMyType();
