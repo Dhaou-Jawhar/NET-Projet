@@ -86,6 +86,7 @@ Plane pl = new Plane();
     pl.PlaneId= 3;
     pl.PlaneType = PlaneType.Boing ;
 }
+Console.WriteLine("-------[Question 7]-------");
 Console.WriteLine(pl);
 
 /*Quest 8*/
@@ -99,7 +100,7 @@ Plane avion2 = new Plane()
     PlaneId = 4,
     PlaneType = PlaneType.Airbus
 };
-
+Console.WriteLine("-------[Question 8 et 9]-------");
 Console.WriteLine(avion2);
 
 
@@ -117,6 +118,7 @@ Passenger pass = new Passenger()
     TelNumber = 24232423
 };
 
+Console.WriteLine("-------[Question 10 : a ) ]-------");
 bool result = pass.CheckProfile2("Dhaou", "Jawhar");
 
 if (result)
@@ -131,12 +133,14 @@ else
 /* 10 ) b- */
 
 /*Juste True or false affichage */
+Console.WriteLine("-------[Question 10 : b ) ]-------");
 Console.WriteLine(pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn"));
 
 
 
 
 /* 10 ) c- */
+Console.WriteLine("-------[Question 10 : c ) ]-------");
 bool result1 = pass.CheckProfile2("Dhaou", "Jawhar");
 
 if (result1)
@@ -163,6 +167,7 @@ else
 /*11. Polymorphysme par héritage*/
 
 /* a ) */
+Console.WriteLine("-------[Question 11 : a & b & c ) ]-------");
 Passenger psst = new Passenger();
 psst.PassengerType();
 
