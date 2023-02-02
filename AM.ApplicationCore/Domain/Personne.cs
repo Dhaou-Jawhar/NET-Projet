@@ -67,7 +67,7 @@ namespace AM.ApplicationCore.Domain
             return Id+ " "+ nom+ " "+ prenom+ " "+email;
         }
 
-        public void GetMyType()
+        public virtual void GetMyType()
         {
             Console.WriteLine("je suis un Personne");
         }

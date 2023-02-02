@@ -19,7 +19,7 @@ namespace AM.ApplicationCore.Domain
             return base.ToString() + " "+DatePermis+" "+TypePermis;
         }
 
-        public void GetMyType() {
+        public override void GetMyType() {
             Console.WriteLine("je suis un conducteur");
         }
 
