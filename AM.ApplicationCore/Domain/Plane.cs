@@ -16,5 +16,10 @@ namespace AM.ApplicationCore.Domain
         public DateTime ManualFactureDate { get; set; }
         public int PlaneId { get; set; }
         public PlaneType PlaneType { get; set; }
+
+        List<Flight> Flights { get; set; }
+        List<Passenger> Passes { get; set; }
     }
+
+    
 }

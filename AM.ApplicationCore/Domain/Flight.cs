@@ -15,4 +15,6 @@ namespace AM.ApplicationCore.Domain
         public DateTime EffectiveArrival { get; set; }
         public DateTime EstimatedDuration { get; set; }
     }
+
+    Plane p { get; set; }
 }
