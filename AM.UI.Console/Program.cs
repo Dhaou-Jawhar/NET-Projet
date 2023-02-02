@@ -87,6 +87,9 @@ Plane pl = new Plane();
     pl.PlaneType = PlaneType.Boing ;
 }
 
+Plane avion = new Plane(PlaneType.Airbus,300,DateTime.Now);
+
 Console.WriteLine(pl);
+Console.WriteLine(avion);
 
 

@@ -31,6 +31,14 @@ namespace AM.ApplicationCore.Domain
             return +Capacity+" "+ManualFactureDate+" "+PlaneType;
         }
 
-       
+        public Plane(PlaneType pt, int capacity, DateTime date)
+        {
+            this.Capacity = capacity;
+            this.ManualFactureDate = date;
+            this.PlaneType = pt;
+        }
+
+
+
     }
 }
