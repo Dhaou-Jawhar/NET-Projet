@@ -8,11 +8,11 @@ namespace AM.ApplicationCore.Domain
 {
     public enum PlaneType
     {
-        Boing,Airbus
+        Boing, Airbus
     }
     public class Plane
     {
-        public string Capacity { get; set; }
+        public double Capacity { get; set; }
         public DateTime ManualFactureDate { get; set; }
         public int PlaneId { get; set; }
         public PlaneType PlaneType { get; set; }
@@ -20,11 +20,17 @@ namespace AM.ApplicationCore.Domain
         List<Flight> Flights { get; set; }
         List<Passenger> Passes { get; set; }
 
+        /*/*Créer un objet non initialisé de type Plane en utilisant le constructeur non paramétré de la
+           classe, puis initialiser ses attributs à travers leurs propriétés.*/
+        public Plane()
+        {
+
+        }
         public override string ToString()
         {
-            return base.ToString();
+            return +Capacity+" "+ManualFactureDate+" "+PlaneType;
         }
-    }
 
-    
+       
+    }
 }

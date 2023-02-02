@@ -75,3 +75,18 @@ Personne c = new Conducteur();
 p.GetMyType();
 c.GetMyType();
 
+
+/*Créer un objet non initialisé de type Plane en utilisant le constructeur non paramétré de la
+classe, puis initialiser ses attributs à travers leurs propriétés.*/
+
+Plane pl = new Plane();
+{
+    pl.Capacity = 123;
+    pl.ManualFactureDate= DateTime.Now;
+    pl.PlaneId= 1;
+    pl.PlaneType = PlaneType.Boing ;
+}
+
+Console.WriteLine(pl);
+
+
