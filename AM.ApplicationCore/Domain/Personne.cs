@@ -15,5 +15,12 @@ namespace AM.ApplicationCore.Domain
         string email;
         string password;
         string confirmPassword;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
     }
+
 }
