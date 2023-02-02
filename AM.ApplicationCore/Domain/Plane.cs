@@ -19,6 +19,11 @@ namespace AM.ApplicationCore.Domain
 
         List<Flight> Flights { get; set; }
         List<Passenger> Passes { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 
     

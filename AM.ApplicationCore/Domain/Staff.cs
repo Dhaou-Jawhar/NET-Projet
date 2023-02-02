@@ -11,5 +11,10 @@ namespace AM.ApplicationCore.Domain
         public DateTime EmployementDate { get; set; }
         public string Function { get; set; }
         public double Salary { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString()+" "+EmployementDate+" "+Function+" "+Salary;
+        }
     }
 }

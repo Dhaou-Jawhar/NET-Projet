@@ -14,7 +14,13 @@ namespace AM.ApplicationCore.Domain
         public int FlightId { get; set; }
         public DateTime EffectiveArrival { get; set; }
         public DateTime EstimatedDuration { get; set; }
+        Plane p { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 
-    Plane p { get; set; }
+    
 }

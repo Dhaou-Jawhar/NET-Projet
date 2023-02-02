@@ -16,5 +16,10 @@ namespace AM.ApplicationCore.Domain
         public int TelNumber { get; set; }
 
         List<Flight> Flights { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
