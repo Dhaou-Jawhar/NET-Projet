@@ -160,6 +160,18 @@ else
 }
 
 
+/*11. Polymorphysme par héritage*/
+
+/* a ) */
+Passenger psst = new Passenger();
+psst.PassengerType();
+
+/* b )  et c ) */
+Staff st = new Staff();
+Traveller tr = new Traveller();
+st.PassengerType();
+tr.PassengerType();
+
 
 
 

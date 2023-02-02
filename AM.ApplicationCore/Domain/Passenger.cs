@@ -74,5 +74,15 @@ namespace AM.ApplicationCore.Domain
 
             return true;
         }
+
+
+        /*11. Polymorphysme par héritage*/
+
+        public virtual void PassengerType()
+        {
+            Console.WriteLine("I am a passenger");
+        }
+
+
     }
 }
