@@ -28,17 +28,22 @@ namespace AM.ApplicationCore.Domain
         }
         public override string ToString()
         {
-            return +Capacity+" "+ManualFactureDate+" "+PlaneType;
+            return "Capacity : " +Capacity+" Facture Date : "+ManualFactureDate+" Type Plane : "+PlaneType;
         }
 
-        public Plane(PlaneType pt, int capacity, DateTime date)
+        //public Plane(PlaneType pt, int capacity, DateTime date)
+        //{
+        //    this.Capacity = capacity;
+        //    this.ManualFactureDate = date;
+        //    this.PlaneType = pt;
+        //}
+
+        public Plane(double capacity, DateTime manualFactureDate, int planeId, PlaneType planeType)
         {
             this.Capacity = capacity;
-            this.ManualFactureDate = date;
-            this.PlaneType = pt;
+            this.ManualFactureDate = manualFactureDate;
+            this.PlaneId = planeId;
+            this.PlaneType = planeType;
         }
-
-
-
     }
 }

@@ -83,13 +83,23 @@ Plane pl = new Plane();
 {
     pl.Capacity = 123;
     pl.ManualFactureDate= DateTime.Now;
-    pl.PlaneId= 1;
+    pl.PlaneId= 3;
     pl.PlaneType = PlaneType.Boing ;
 }
-
-Plane avion = new Plane(PlaneType.Airbus,300,DateTime.Now);
-
 Console.WriteLine(pl);
-Console.WriteLine(avion);
+
+/*Quest 8*/
+//Plane avion = new Plane(PlaneType.Airbus,300,DateTime.Now);
+//Console.WriteLine(avion);
+
+Plane avion2 = new Plane()
+{
+    Capacity = 350,
+    ManualFactureDate = DateTime.Now,
+    PlaneId = 4,
+    PlaneType = PlaneType.Airbus
+};
+
+Console.WriteLine(avion2);
 
 
