@@ -48,3 +48,19 @@ p.confirmPassword = "1234";
 
 Console.WriteLine(p);
 
+/*constructeur avec parametre*/
+Personne p1 = new Personne("nom", "prenom",DateTime.Now,"email","password","confirmPassword" );
+Console.WriteLine(p1);
+
+
+/*Initialisateur d'objet*/
+Personne p2 = new Personne()
+{
+    email="email",
+    nom="Dhaou",
+    prenom="Jawhar",
+    confirmPassword="1234",
+    dateNaissance=DateTime.Now,
+    password="1234"
+};
+

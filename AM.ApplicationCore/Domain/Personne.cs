@@ -8,6 +8,25 @@ namespace AM.ApplicationCore.Domain
 {
     public class Personne
     {
+
+        
+
+        /*constructeur sans parametre = ctor ( double tabulation) */
+        public Personne()
+        {
+                
+        }
+        /*selectionner les proprités et ajouter un constructeur par la lompe jaune */
+        public Personne(string nom, string prenom, DateTime dateNaissance, string email, string password, string confirmPassword)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.dateNaissance = dateNaissance;
+            this.email = email;
+            this.password = password;
+            this.confirmPassword = confirmPassword;
+        }
+
         public int Id
         {
             get;
