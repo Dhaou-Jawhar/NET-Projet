@@ -103,3 +103,68 @@ Plane avion2 = new Plane()
 Console.WriteLine(avion2);
 
 
+
+
+/*III Le Polymorphisme*/
+/* 10 ) a- */
+Passenger pass = new Passenger()
+{
+    BirthDate = DateTime.Now,
+    PasseportNumber = 95332,
+    EmailAddress = "test@esprit.tn",
+    FirstName = "Dhaou",
+    LastName = "Jawhar",
+    TelNumber = 24232423
+};
+
+bool result = pass.CheckProfile2("Dhaou", "Jawhar");
+
+if (result)
+{
+    Console.WriteLine("Profile matches");
+}
+else
+{
+    Console.WriteLine("Profile does not match");
+}
+
+/* 10 ) b- */
+
+/*Juste True or false affichage */
+Console.WriteLine(pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn"));
+
+
+
+
+/* 10 ) c- */
+bool result1 = pass.CheckProfile2("Dhaou", "Jawhar");
+
+if (result1)
+{
+    Console.WriteLine("Profile matches( 2 param )");
+}
+else
+{
+    Console.WriteLine("Profile does not match( 2 param )");
+}
+
+bool result2 = pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn");
+
+if (result2)
+{
+    Console.WriteLine("Profile matches (3 parameters)");
+}
+else
+{
+    Console.WriteLine("Profile does not match (3 parameters)");
+}
+
+
+
+
+
+
+
+
+
+
