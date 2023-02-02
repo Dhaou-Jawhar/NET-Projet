@@ -64,3 +64,7 @@ Personne p2 = new Personne()
     password="1234"
 };
 
+Conducteur c = new Conducteur();
+p.GetMyType();
+c.GetMyType();
+

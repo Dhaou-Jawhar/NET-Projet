@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AM.ApplicationCore.Domain
 {
     /*heritage c#  ( conducteur herite from personne ) */
-    internal class Conducteur : Personne
+    public class Conducteur : Personne
     {
         public DateTime DatePermis { get; set; }
         public string TypePermis { get; set; }
@@ -17,6 +17,10 @@ namespace AM.ApplicationCore.Domain
         public override string ToString()
         {
             return base.ToString() + " "+DatePermis+" "+TypePermis;
+        }
+
+        public void GetMyType() {
+            Console.WriteLine("je suis un conducteur");
         }
 
     }
