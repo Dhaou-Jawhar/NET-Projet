@@ -8,6 +8,7 @@ namespace AM.ApplicationCore.Interfaces
 {
     public interface IServiceFlight
     {
-        public void GetFlightDates(string destination);
+        public List<DateTime> GetFlightDates(string destination);
+        public void GetFlights(string filterType, string filterValue);
     }
 }
