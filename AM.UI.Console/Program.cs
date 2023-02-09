@@ -13,172 +13,125 @@
 
 //    int chiffreValue = 0;
 
-//   // do
+//    // do
 //    //
-//        try
-//        {
-//            string chiffre = Console.ReadLine();
-//            chiffreValue = int.Parse(chiffre);
+//    try
+//    {
+//        string chiffre = Console.ReadLine();
+//        chiffreValue = int.Parse(chiffre);
 //        if (chiffreValue > 15 && chiffreValue <= 18)
 //        { Console.WriteLine("Ados"); }
 //        else if (chiffreValue > 18)
 //        { Console.WriteLine("Adulte"); }
 
 //    }
-//        catch
-//        {
-//            Console.WriteLine("Erreur au niveau de conversion du chiffre");
-//        }
+//    catch
+//    {
+//        Console.WriteLine("Erreur au niveau de conversion du chiffre");
+//    }
 //    //} while (chiffreValue == 0);
 
 //    Console.WriteLine("Votre nombre est " + (chiffreValue + 1));
 
 //}
 
+using AM.ApplicationCore.Services;
+using System.Collections;
+using System.Collections.Generic;
 using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Interfaces;
 
 Personne p = new Personne();
 p.Id = 11;
-p.nom = "Dhaou";
-p.prenom = "Jawhar";
-p.email = "dhaou.jawhar@esprit.tn";
-p.dateNaissance= new DateTime(2000, 12, 25);
-p.password = "1234";
-p.confirmPassword = "1234";
-
+p.Nom = "Kharroubi";
+p.Prenom = "Hazem";
+p.Email = "esprit@gmail.com";
+p.DateNaissance = new DateTime(2000, 12, 30);
+p.Password = "password";
+p.ConfirmPassword = "password";
 Console.WriteLine(p);
+Personne p1 = new Personne("nom", "prenom", DateTime.Now, "email", "password", "confirmPassword");
 
-/*constructeur avec parametre*/
-Personne p1 = new Personne("nom", "prenom",DateTime.Now,"email","password","confirmPassword" );
-Console.WriteLine(p1);
-
-
-/*Initialisateur d'objet*/
+//Initialisateur d'objet
 Personne p2 = new Personne()
 {
-    email="email",
-    nom="Dhaou",
-    prenom="Jawhar",
-    confirmPassword="1234",
-    dateNaissance=DateTime.Now,
-    password="1234"
+    Nom = "nom",
+    Prenom = "prenom",
+    DateNaissance = DateTime.Now,
+    Email = "email",
+    Password = "password",
+    ConfirmPassword = "confirmPassword"
 };
 
-//Conducteur c = new Conducteur();
-//p.GetMyType();
-//c.GetMyType();
-
-/* c. et p. ( prend le mm methode dans personne ) */
-/*pour fixer le problème ( override dans la methode de la classe fils et vitual dans la methode de classe mere ) */
-/*redifinition des methodes */
-Personne c = new Conducteur();
+Conducteur c = new Conducteur(); ;
 p.GetMyType();
 c.GetMyType();
 
+//Création d'un objet non initialisé de type Plane
+Plane plane = new Plane();
+plane.PlaneId = 2;
+plane.Capacity = 256;
+plane.ManufactureDate = DateTime.Now;
+plane.PlaneType = PlaneType.Airbus;
+Console.WriteLine(plane);
+//Plane plane1 = new Plane(PlaneType.Boing, 125, new DateTime(2022, 11, 11));
+//Console.WriteLine(plane1) ;
 
-/*Créer un objet non initialisé de type Plane en utilisant le constructeur non paramétré de la
-classe, puis initialiser ses attributs à travers leurs propriétés.*/
-
-Plane pl = new Plane();
+//Initialisateur d'objet pour
+Plane plane2 = new Plane()
 {
-    pl.Capacity = 123;
-    pl.ManualFactureDate= DateTime.Now;
-    pl.PlaneId= 3;
-    pl.PlaneType = PlaneType.Boing ;
-}
-Console.WriteLine("-------[Question 7]-------");
-Console.WriteLine(pl);
-
-/*Quest 8*/
-//Plane avion = new Plane(PlaneType.Airbus,300,DateTime.Now);
-//Console.WriteLine(avion);
-
-Plane avion2 = new Plane()
-{
-    Capacity = 350,
-    ManualFactureDate = DateTime.Now,
-    PlaneId = 4,
+    PlaneId = 1,
+    Capacity = 120,
+    ManufactureDate = new DateTime(2022, 3, 19),
     PlaneType = PlaneType.Airbus
 };
-Console.WriteLine("-------[Question 8 et 9]-------");
-Console.WriteLine(avion2);
+// 9)On remarque que l'initialistaeur d'objet nous permet de créer et intialiser un objet sans besoin d'un constructeur explicite. 
 
+//11)
+Passenger traveller = new Traveller();
+Passenger staff = new Staff();
+Passenger Passenger = new Passenger();
+traveller.PassengerType();
+staff.PassengerType();
+Passenger.PassengerType();
 
+//collection des objets non génériques
+ArrayList list = new ArrayList();
+list.Add(plane);
+list.Add(1);
+list.Add("Bonjour");
 
-
-/*III Le Polymorphisme*/
-/* 10 ) a- */
-Passenger pass = new Passenger()
+for (int i = 0; i < list.Count; i++)
 {
-    BirthDate = DateTime.Now,
-    PasseportNumber = 95332,
-    EmailAddress = "test@esprit.tn",
-    FirstName = "Dhaou",
-    LastName = "Jawhar",
-    TelNumber = 24232423
+    Console.WriteLine(list[i]);
+}
+foreach (var item in list)
+{
+    Console.WriteLine(item);
+}
+//collection des objets génériques
+IList<Plane> planes = new List<Plane>();
+//IList:Ienumerable,Icollection
+//ICollection:IEnumerable
+//IEnumerable: assure le parcour des listes uniquement
+//ICollection: les méthode des parcours et l'insertion(add, remove, recherche ...)
+planes.Add(plane);
+planes.Add(plane2);
+IList<Plane> planes1 = new List<Plane>()
+{
+    plane,plane2,new Plane(){Capacity=12,PlaneId=4, ManufactureDate=new DateTime(2022,11,11)}
 };
+Personne p11 = new Personne();
+Console.WriteLine(Personne.nb);
+Personne p22 = new Personne();
+Console.WriteLine(Personne.nb);
+Personne p33 = new Personne();
+Console.WriteLine(Personne.nb);
 
-Console.WriteLine("-------[Question 10 : a ) ]-------");
-bool result = pass.CheckProfile2("Dhaou", "Jawhar");
-
-if (result)
-{
-    Console.WriteLine("Profile matches");
-}
-else
-{
-    Console.WriteLine("Profile does not match");
-}
-
-/* 10 ) b- */
-
-/*Juste True or false affichage */
-Console.WriteLine("-------[Question 10 : b ) ]-------");
-Console.WriteLine(pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn"));
-
-
-
-
-/* 10 ) c- */
-Console.WriteLine("-------[Question 10 : c ) ]-------");
-bool result1 = pass.CheckProfile2("Dhaou", "Jawhar");
-
-if (result1)
-{
-    Console.WriteLine("Profile matches( 2 param )");
-}
-else
-{
-    Console.WriteLine("Profile does not match( 2 param )");
-}
-
-bool result2 = pass.CheckProfile2("Dhaou", "Jawhar", "test@esprit.tn");
-
-if (result2)
-{
-    Console.WriteLine("Profile matches (3 parameters)");
-}
-else
-{
-    Console.WriteLine("Profile does not match (3 parameters)");
-}
-
-
-/*11. Polymorphysme par héritage*/
-
-/* a ) */
-Console.WriteLine("-------[Question 11 : a & b & c ) ]-------");
-Passenger psst = new Passenger();
-psst.PassengerType();
-
-/* b )  et c ) */
-Staff st = new Staff();
-Traveller tr = new Traveller();
-st.PassengerType();
-tr.PassengerType();
-
-
-
+//TP2
+//----------5------------
+ServiceFlight serviceFlight = new ServiceFlight();
+serviceFlight.Flights = TestData.Flights;
 
 
 
