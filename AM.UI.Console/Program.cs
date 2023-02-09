@@ -129,10 +129,9 @@ Personne p33 = new Personne();
 Console.WriteLine(Personne.nb);
 
 //TP2
-//5)
+//----------5------------
 ServiceFlight serviceFlight = new ServiceFlight();
 serviceFlight.Flights = TestData.Flights;
-//6)
 
 
 

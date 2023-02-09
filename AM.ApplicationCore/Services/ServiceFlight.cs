@@ -37,7 +37,7 @@ namespace AM.ApplicationCore.Services
         }
 
         // 8)
-        public List<Flight> GetFlights(string filterType, string filterValue)
+        public void GetFlights(string filterType, string filterValue)
         {
             List<Flight> listFlights = new List<Flight>();
             if (filterType.Equals("Destination"))
@@ -60,8 +60,8 @@ namespace AM.ApplicationCore.Services
                     }
 
                 }
+                Console.WriteLine(listFlights);
             }
-            return listFlights;
         }
     }
 }
