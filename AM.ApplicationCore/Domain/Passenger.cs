@@ -10,79 +10,45 @@ namespace AM.ApplicationCore.Domain
     public class Passenger
     {
         public DateTime BirthDate { get; set; }
-        public int PasseportNumber { get; set; }
+        public int PassportNumber { get; set; }
         public string EmailAddress { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int TelNumber { get; set; }
-
-        List<Flight> Flights { get; set; }
-
+        public string TelNumber { get; set; }
+        public ICollection<Flight> flights { get; set; }
         public override string ToString()
         {
-            return base.ToString();
+            return FirstName + " " + LastName + " " + BirthDate + " " + PassportNumber + " " + EmailAddress + " " + TelNumber;
         }
+        //10-a)
 
-        public Passenger()
+        //public bool checkProfil(string nom, string prenom) {
+
+        //    return FirstName==nom && LastName==prenom;
+        //}
+        //b)
+
+        //public bool checkProfil(string nom, string prenom,string email)
+        //{
+
+        //    return FirstName == nom && LastName == prenom && EmailAddress==email;
+        //}
+
+        //c)
+        public bool checkProfil(string nom, string prenom, string email = null)
         {
-
-        }
-
-        public Passenger(DateTime birthDate, int passeportNumber, string emailAddress, string firstName, string lastName, int telNumber)
-        {
-            BirthDate = birthDate;
-            PasseportNumber = passeportNumber;
-            EmailAddress = emailAddress;
-            FirstName = firstName;
-            LastName = lastName;
-            TelNumber = telNumber;
-        }
-
-        public bool CheckProfile(string nom, string prenom)
-        {
-            return FirstName == nom && LastName == prenom;
-        }
-
-
-
-        public bool CheckProfile(string nom, string prenom , string mail)
-        {
-            return FirstName == nom && LastName == prenom && EmailAddress == mail;
-        }
-
-        public bool CheckProfile2(string nom = "", string prenom = "", string email = "")
-        {
-            if (string.IsNullOrEmpty(prenom) && string.IsNullOrEmpty(nom) && string.IsNullOrEmpty(email))
+            if (email == null)
             {
-                return false;
+                return FirstName == nom && LastName == prenom;
             }
-
-            if (!string.IsNullOrEmpty(prenom) && this.FirstName != nom)
-            {
-                return false;
-            }
-
-            if (!string.IsNullOrEmpty(nom) && this.LastName != prenom)
-            {
-                return false;
-            }
-
-            if (!string.IsNullOrEmpty(prenom) && this.EmailAddress != email)
-            {
-                return false;
-            }
-
-            return true;
+            return FirstName == nom && LastName == prenom && EmailAddress == email;
         }
-
-
-        /*11. Polymorphysme par héritage*/
-
+        //11)
         public virtual void PassengerType()
         {
             Console.WriteLine("I am a passenger");
         }
 
-
     }
+
 }

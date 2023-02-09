@@ -6,44 +6,36 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Domain
 {
+
     public enum PlaneType
     {
-        Boing, Airbus
+        Boing,
+        Airbus
     }
+
+
     public class Plane
     {
-        public double Capacity { get; set; }
-        public DateTime ManualFactureDate { get; set; }
-        public int PlaneId { get; set; }
-        public PlaneType PlaneType { get; set; }
-
-        List<Flight> Flights { get; set; }
-        List<Passenger> Passes { get; set; }
-
-        /*/*Créer un objet non initialisé de type Plane en utilisant le constructeur non paramétré de la
-           classe, puis initialiser ses attributs à travers leurs propriétés.*/
         public Plane()
         {
 
         }
-        public override string ToString()
-        {
-            return "Capacity : " +Capacity+" Facture Date : "+ManualFactureDate+" Type Plane : "+PlaneType;
-        }
-
-        //public Plane(PlaneType pt, int capacity, DateTime date)
+        //public Plane(PlaneType pt,int capacity,DateTime date)
         //{
-        //    this.Capacity = capacity;
-        //    this.ManualFactureDate = date;
-        //    this.PlaneType = pt;
+        //    PlaneType = pt;
+        //    Capacity= capacity;
+        //    ManufactureDate= date;
         //}
 
-        public Plane(double capacity, DateTime manualFactureDate, int planeId, PlaneType planeType)
+        public int Capacity { get; set; }
+        public DateTime ManufactureDate { get; set; }
+        public int PlaneId { get; set; }
+        public PlaneType PlaneType { get; set; }
+        public ICollection<Flight> Flights { get; set; }
+        public override string ToString()
         {
-            this.Capacity = capacity;
-            this.ManualFactureDate = manualFactureDate;
-            this.PlaneId = planeId;
-            this.PlaneType = planeType;
+            return PlaneId + " " + Capacity + " " + ManufactureDate + " " + PlaneType;
         }
     }
+
 }

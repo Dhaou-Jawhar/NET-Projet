@@ -8,69 +8,59 @@ namespace AM.ApplicationCore.Domain
 {
     public class Personne
     {
-
-        /*constructeur sans parametre = ctor ( double tabulation) */
+        //Constructeur par défaut(tapper ctor)
         public Personne()
         {
-                
+            nb++;
         }
 
-        public bool login(string nom, string password) {
-
-            //var result = nom == nom || password == password ? true : false;
-            //return result;
-
-            //----------------------[OU]---------------------------
-
-            //if (nom==nom && password==password)
+        //Surcharges des méthodes(méthode de mm nom mais des nombres de paramétres différents)
+        public bool Login(string nom, string password)
+        {
+            //Méthode1:
+            //var result = nom==Nom && password==Password? true:false;
+            ////Méthode2:
+            //if(nom==Nom&& password==password)
             //    return true;
             //else return false;
-
-            return nom == nom && password == password;
+            ////Méthode3:
+            return nom == Nom && password == Password;
         }
-
-        public bool login(string nom, string password, string email) { 
-        
-            return nom == nom && password == password && email == email;
-        }
-
-
-        /*selectionner les proprités et ajouter un constructeur par la lompe jaune */
-        public Personne(string nom, string prenom, DateTime dateNaissance, string email, string password, string confirmPassword)
+        public bool Login(string nom, string password, string email)
         {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.dateNaissance = dateNaissance;
-            this.email = email;
-            this.password = password;
-            this.confirmPassword = confirmPassword;
+
+            return nom == Nom && password == Password && email == Email;
         }
 
-        public int Id
-        {
-            get;
-            set;
-        }
-        /* prop + double Tabulation = public int MyProperty { get; set; } */
-
-        public string nom { get; set; }
-        public string prenom { get; set; }
-        public DateTime dateNaissance { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public string confirmPassword { get; set; }
-
-        /*override to string */
-        /* base = ( super dans java )  */
-        public override string ToString()
-        {
-            return Id+ " "+ nom+ " "+ prenom+ " "+email;
-        }
-
+        //Redifinition des méthodes(cas d'éritage): on ajoute "virtual" dans la classe mére, on ajoute "Override" dans la classe fille
         public virtual void GetMyType()
         {
-            Console.WriteLine("je suis un Personne");
+            Console.WriteLine("je suis un personne");
         }
+
+        public Personne(string nom, string prenom, DateTime dateNaissance, string email, string password, string confirmPassword)
+        {
+            Nom = nom;
+            Prenom = prenom;
+            DateNaissance = dateNaissance;
+            Email = email;
+            Password = password;
+            ConfirmPassword = confirmPassword;
+        }
+
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public DateTime DateNaissance { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+        public static int nb { get; set; }
+        public override string ToString()
+        {
+            return Id + " " + Nom + " " + Prenom + " " + DateNaissance + " " + Email + " " + Password + " " + ConfirmPassword;
+        }
+
     }
 
 }
