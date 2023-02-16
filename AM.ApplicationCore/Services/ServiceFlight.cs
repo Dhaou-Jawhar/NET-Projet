@@ -164,5 +164,18 @@ namespace AM.ApplicationCore.Services
                 .Average(f => f.EstimateDuration);
             return query;
         }
+
+        List<Flight> OrderedDurationFlights()
+        {
+            //var query = Flights
+            //    .OrderByDescending(f => f.EstimateDuration).ToList();
+
+            //Syntax de requet
+            var query = from f in Flights
+                        orderby f.EstimateDuration descending
+                        select (f);
+
+            return query.ToList();
+        }
     }
 }
