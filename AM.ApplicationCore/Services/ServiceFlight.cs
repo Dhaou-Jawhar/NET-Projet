@@ -17,7 +17,7 @@ namespace AM.ApplicationCore.Services
         // 6)
         public List<DateTime> GetFlightDates(string destination)
         {
-            //List<DateTime> dates = new List<DateTime>();
+            List<DateTime> z = new List<DateTime>();
             //for(int i = 0; i < Flights.Count; i++)
             //{
             //    if (Flights[i].Destination==destination)
@@ -26,16 +26,30 @@ namespace AM.ApplicationCore.Services
             //return dates;
 
             // 7)
-            List<DateTime> dates = new List<DateTime>();
-            foreach (var flight in Flights)
-            {
-                if (flight.Destination == destination)
-                {
-                    dates.Add(flight.FlightDate);
-                }
+            //List<DateTime> dates = new List<DateTime>();
+            //foreach (var flight in Flights)
+            //{
+            //    if (flight.Destination == destination)
+            //    {
+            //        dates.Add(flight.FlightDate);
+            //    }
 
-            }
-            return dates;
+            //}
+
+            //Syntaxe de  Requete
+
+            //var query = from flight in Flights
+            //         where flight.Destination == destination
+            //         select flight.FlightDate;
+            //return query.ToList();   // car query = Enumerable et la methode return IList ( ToList ) Convertion + Execution du requet
+
+            //Syntaxe de methode
+
+            var query = Flights
+                .Where(Flights => Flights.Destination == destination)
+                .Select(Flights => Flights.FlightDate) .ToList();
+
+            return query;
         }
 
         // 8)
@@ -123,11 +137,5 @@ namespace AM.ApplicationCore.Services
             //}
             return flights;
         }
-
-        public void GetFlights(string filterType, string filterValue)
-        {
-            throw new NotImplementedException();
-        }
-        //test
     }
 }
