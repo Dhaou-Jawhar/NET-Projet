@@ -149,6 +149,7 @@ namespace AM.ApplicationCore.Services
                 Console.WriteLine(item);
             }
         }
+        //Ex 11
 
         int ProgrammedFlightNumber(DateTime startDate)
         {
@@ -157,6 +158,7 @@ namespace AM.ApplicationCore.Services
             return query;
         }
 
+        //Ex 12
         Double DurationAverage(string destination)
         {
             var query = Flights
@@ -165,6 +167,7 @@ namespace AM.ApplicationCore.Services
             return query;
         }
 
+        //Ex 13
         List<Flight> OrderedDurationFlights()
         {
             //var query = Flights
@@ -176,6 +179,17 @@ namespace AM.ApplicationCore.Services
                         select (f);
 
             return query.ToList();
+        }
+
+        //Ex 14
+        List<Traveller> SeniorTravellers(Flight flight)
+        {
+            var query = flight.passengers.OfType<Traveller>()  
+                    //.Where(p => p is Traveller)   // bech yraja3li liste passenger , donc nbadeloha list traveller
+                    .OrderBy(p => p.BirthDate).Take(3).ToList();
+
+            List<Passenger> p = new List<Passenger>(query);   // cast implicite
+            return query;
         }
     }
 }
