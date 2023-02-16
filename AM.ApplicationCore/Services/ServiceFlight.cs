@@ -137,5 +137,19 @@ namespace AM.ApplicationCore.Services
             //}
             return flights;
         }
+
+        // 9 )
+        void ShowFlightDetails(Plane plane)
+        {
+            var query = Flights
+                .Where(f => f.plane.PlaneId == plane.PlaneId)
+                .Select(f => new { f.Destination, f.FlightDate });
+        foreach (var item in query)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+
     }
 }
