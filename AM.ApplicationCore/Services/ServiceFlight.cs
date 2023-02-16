@@ -156,5 +156,13 @@ namespace AM.ApplicationCore.Services
                 .Count(f => f.FlightDate > startDate && (f.FlightDate - startDate).TotalDays < 7);
             return query;
         }
+
+        Double DurationAverage(string destination)
+        {
+            var query = Flights
+                .Where(f => f.Destination.Equals(destination))
+                .Average(f => f.EstimateDuration);
+            return query;
+        }
     }
 }
