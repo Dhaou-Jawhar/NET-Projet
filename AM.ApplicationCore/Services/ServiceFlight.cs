@@ -10,6 +10,8 @@ namespace AM.ApplicationCore.Services
 {
     public class ServiceFlight : IServiceFlight
     {
+
+        //initialiser vide = new List<Fight>()
         public List<Flight> Flights { get; set; } = new List<Flight>();
 
         // 6)

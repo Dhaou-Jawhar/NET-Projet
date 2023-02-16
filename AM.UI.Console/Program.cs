@@ -133,7 +133,7 @@ Console.WriteLine(Personne.nb);
 ServiceFlight serviceFlight = new ServiceFlight();
 serviceFlight.Flights = TestData.Flights;
 
-
+serviceFlight.GetFlights("Paris", "Paris");
 
 
 
