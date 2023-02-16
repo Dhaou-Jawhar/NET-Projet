@@ -133,7 +133,18 @@ Console.WriteLine(Personne.nb);
 ServiceFlight serviceFlight = new ServiceFlight();
 serviceFlight.Flights = TestData.Flights;
 
-serviceFlight.GetFlights("Paris", "Paris");
+serviceFlight.GetFlights("Paris", delegate(Flight f, String c)
+{
+    return f.Destination == c;
+}
+);
+
+serviceFlight.GetFlights("2022/02/01", (Flight f, String c) =>
+{
+    return f.FlightDate.Equals(c);
+});
+
+
 
 
 

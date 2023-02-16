@@ -39,82 +39,94 @@ namespace AM.ApplicationCore.Services
         }
 
         // 8)
-        public void GetFlights(string filterType, string filterValue)
+        public List<Flight> GetFlights(string filterValue, Func<Flight, String, Boolean> condition)
         {
             List<Flight> flights = new List<Flight>();
 
-            if (filterType.Equals("Destination"))
+            foreach (var flight in Flights)
             {
-
-                foreach (var flight in Flights)
+                if (condition(flight, filterValue))
                 {
-                    if (flight.Destination.Equals(filterValue))
-                    {
-                        flights.Add(flight);
-                        Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
-
-                    }
+                    flights.Add(flight);
+                    Console.WriteLine(flight);
                 }
-
             }
-            if (filterType.Equals("PlaneType"))
-            {
 
-                foreach (var flight in Flights)
-                {
-                    if (flight.plane.PlaneType.Equals(filterValue))
-                    {
-                        flights.Add(flight);
-                        Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
+            //if (filterType.Equals("Destination"))
+            //{
 
-                    }
-                }
+            //    foreach (var flight in Flights)
+            //    {
+            //        if (flight.Destination.Equals(filterValue))
+            //        {
+            //            flights.Add(flight);
+            //            Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
 
-            }
-            if (filterType.Equals("PlaneType"))
-            {
+            //        }
+            //    }
 
-                foreach (var flight in Flights)
-                {
-                    if (flight.plane.PlaneType.Equals(filterValue))
-                    {
-                        flights.Add(flight);
-                        Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
+            //}
+            //if (filterType.Equals("PlaneType"))
+            //{
 
-                    }
-                }
+            //    foreach (var flight in Flights)
+            //    {
+            //        if (flight.plane.PlaneType.Equals(filterValue))
+            //        {
+            //            flights.Add(flight);
+            //            Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
 
-            }
-            if (filterType.Equals("FlightDate"))
-            {
+            //        }
+            //    }
 
-                foreach (var flight in Flights)
-                {
-                    if (flight.FlightDate.Equals(filterValue))
-                    {
-                        flights.Add(flight);
-                        Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
-                    }
-                }
+            //}
+            //if (filterType.Equals("PlaneType"))
+            //{
 
-            }
-            if (filterType.Equals("EffectiveArrival"))
-            {
+            //    foreach (var flight in Flights)
+            //    {
+            //        if (flight.plane.PlaneType.Equals(filterValue))
+            //        {
+            //            flights.Add(flight);
+            //            Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
 
-                foreach (var flight in Flights)
-                {
-                    if (flight.EffectiveArrival.Equals(filterValue))
-                    {
-                        flights.Add(flight);
-                        Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
+            //        }
+            //    }
 
-                    }
-                }
+            //}
+            //if (filterType.Equals("FlightDate"))
+            //{
 
-            }
+            //    foreach (var flight in Flights)
+            //    {
+            //        if (flight.FlightDate.Equals(filterValue))
+            //        {
+            //            flights.Add(flight);
+            //            Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
+            //        }
+            //    }
+
+            //}
+            //if (filterType.Equals("EffectiveArrival"))
+            //{
+
+            //    foreach (var flight in Flights)
+            //    {
+            //        if (flight.EffectiveArrival.Equals(filterValue))
+            //        {
+            //            flights.Add(flight);
+            //            Console.WriteLine("FlightDate: {0} Destination: {1}  EffectiveArrival: {2}  Plane:{3} EstimateDuration: {4} Passengers: {5}", flight.FlightDate, flight.Destination, flight.EffectiveArrival, flight.plane.PlaneType, flight.EstimateDuration, flight.passengers);
+
+            //        }
+            //    }
+
+            //}
+            return flights;
         }
 
-
-
+        public void GetFlights(string filterType, string filterValue)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
