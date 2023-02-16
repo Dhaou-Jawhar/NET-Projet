@@ -5,6 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Plane = System.Numerics.Plane;
 
 namespace AM.ApplicationCore.Interfaces
 {
@@ -17,6 +18,8 @@ namespace AM.ApplicationCore.Interfaces
         Double DurationAverage(string destination);
         List<Flight> OrderedDurationFlights();
         List<Traveller> SeniorTravellers(Flight flight);
+
+        void DestinationGroupedFlights();
        public void GetFlights(string filterType, string filterValue);
     }
 }

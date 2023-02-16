@@ -188,8 +188,58 @@ namespace AM.ApplicationCore.Services
                     //.Where(p => p is Traveller)   // bech yraja3li liste passenger , donc nbadeloha list traveller
                     .OrderBy(p => p.BirthDate).Take(3).ToList();
 
-            List<Passenger> p = new List<Passenger>(query);   // cast implicite
+            List<Passenger> p = new List<Passenger>(query);   // cast implicite  ( ken bech n5aliw e return List Passenger )
             return query;
+        }
+
+        //Ex 15
+        void DestinationGroupedFlights()
+        {
+            var query = Flights
+                .GroupBy(f => f.Destination).ToList();
+            foreach (var f in query)
+            {
+                Console.WriteLine("Destination : " +f.Key);
+                foreach (var g in f)
+                {
+                    Console.WriteLine(g.FlightDate);
+                }
+            }
+        }
+
+        public void ShowFlightDetails(System.Numerics.Plane plane)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IServiceFlight.ProgrammedFlightNumber(DateTime startDate)
+        {
+            throw new NotImplementedException();
+        }
+
+        double IServiceFlight.DurationAverage(string destination)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Flight> IServiceFlight.OrderedDurationFlights()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Traveller> IServiceFlight.SeniorTravellers(Flight flight)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IServiceFlight.DestinationGroupedFlights()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetFlights(string filterType, string filterValue)
+        {
+            throw new NotImplementedException();
         }
     }
 }
