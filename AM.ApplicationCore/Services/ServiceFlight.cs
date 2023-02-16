@@ -150,6 +150,12 @@ namespace AM.ApplicationCore.Services
             }
         }
 
-
+        int ProgrammedFlightNumber(DateTime startDate)
+        {
+            var query = Flights
+                .Where(f => f.FlightDate > startDate && (f.FlightDate - startDate).TotalDays < 7)
+                .Count();
+            return query;
+        }
     }
 }
