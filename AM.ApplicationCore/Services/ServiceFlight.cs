@@ -241,5 +241,10 @@ namespace AM.ApplicationCore.Services
         {
             throw new NotImplementedException();
         }
+
+        /*----------------[Expressions Lambda / Les méthodes LINQ prédéfinies]------------------*/
+        //16
+
+         
     }
 }
