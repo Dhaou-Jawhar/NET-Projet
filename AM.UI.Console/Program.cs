@@ -147,5 +147,3 @@ serviceFlight.GetFlights("2022/02/01", (Flight f, String c) =>
 
 
 
-
-
