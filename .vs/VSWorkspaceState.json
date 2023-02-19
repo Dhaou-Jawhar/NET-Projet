@@ -3,8 +3,9 @@
     "",
     "\\AM.ApplicationCore",
     "\\AM.ApplicationCore\\Domain",
+    "\\AM.ApplicationCore\\Interfaces",
     "\\AM.UI.Console"
   ],
-  "SelectedNode": "\\AM.UI.Console\\Program.cs",
+  "SelectedNode": "\\AM.ApplicationCore\\Domain\\Flight.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -3,8 +3,10 @@ using AM.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Plane = AM.ApplicationCore.Domain.Plane;
 
 namespace AM.ApplicationCore.Services
 {
@@ -207,39 +209,123 @@ namespace AM.ApplicationCore.Services
             }
         }
 
-        public void ShowFlightDetails(System.Numerics.Plane plane)
+        /*----------------[Expressions Lambda / Les méthodes LINQ prédéfinies]------------------*/
+        //16
+
+        delegate void FlightDetailsDel(Plane plane);
+
+        // Define a lambda expression that takes a Plane object and prints its details
+        FlightDetailsDel printDetails = (plane) =>
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Plane details:");
+            Console.WriteLine("ID: {0}", plane.PlaneId);
+            Console.WriteLine("Capacity: {0}", plane.Capacity);
+            Console.WriteLine("Manufacture Date: {0}", plane.ManufactureDate);
+            Console.WriteLine("Plane Type: {0}", plane.PlaneType);
+        };
+
+
+
+        delegate float DurationAverageDel(string destination);
+
+        DurationAverageDel getAverageDuration = (destination) =>
+        {
+            float totalDuration = 0;
+            int count = 0;
+            List<Flight> flights = new List<Flight>();
+
+            foreach (Flight flight in flights)
+            {
+                if (flight.Destination == destination)
+                {
+                    totalDuration += flight.EstimateDuration;
+                    count++;
+                }
+            }
+
+            if (count > 0)
+            {
+                return totalDuration / count;
+            }
+            else
+            {
+                return 0;
+            }
+        };
+
+        //17 :
+
+        private FlightDetailsDel showFlightDetails;
+        private DurationAverageDel durationAverage;
+
+        public void GetFlightDetails(Plane plane)
+        {
+            // Call the ShowFlightDetails delegate to print the details of a Plane object
+            showFlightDetails(plane);
         }
 
-        int IServiceFlight.ProgrammedFlightNumber(DateTime startDate)
+        public void GetDurationAverage(string destination)
         {
-            throw new NotImplementedException();
+            // Call the DurationAverage delegate to calculate the average duration of flights to a given destination
+            double averageDuration = durationAverage(destination);
+            Console.WriteLine($"Average duration to {destination}: {averageDuration}");
         }
 
-        double IServiceFlight.DurationAverage(string destination)
+
+        //18 - 
+
+    //    public ServiceFlight()
+    //    {
+    //        showFlightDetails = plane => {
+    //            var query = Flights
+    //                .Where(f => f.plane.PlaneId == plane.PlaneId)
+    //                .Select(f => new { f.Destination, f.FlightDate });
+
+    //            foreach (var item in query)
+    //            {
+    //                Console.WriteLine(item);
+    //            }
+    //        };
+
+            
+    //        durationAverage = destination => {
+    //            var query = Flights
+    //                .Where(f => f.Destination.Equals(destination))
+    //                .Average(f => f.EstimateDuration);
+    //            return query;
+    //        };
+
+    //    // ...
+    //}
+
+        //19
+        public ServiceFlight()
         {
-            throw new NotImplementedException();
+            // Assign the ShowFlightDetails delegate to an anonymous method that prints the flight details of a given plane
+            showFlightDetails = plane => {
+                var query = from flight in Flights
+                            where flight.plane.PlaneId == plane.PlaneId
+                            select new { flight.Destination, flight.FlightDate };
+
+                foreach (var item in query)
+                {
+                    Console.WriteLine(item);
+                }
+            };
+
+            // Assign the DurationAverage delegate to an anonymous method that calculates the average duration of flights to a given destination
+            durationAverage = destination => {
+                var query = from flight in Flights
+                            where flight.Destination.Equals(destination)
+                            select flight.EstimateDuration;
+
+                double averageDuration = query.Average();
+                return (float)averageDuration;
+            };
         }
 
-        List<Flight> IServiceFlight.OrderedDurationFlights()
-        {
-            throw new NotImplementedException();
-        }
+        //V Les méthodes d’extension
 
-        List<Traveller> IServiceFlight.SeniorTravellers(Flight flight)
-        {
-            throw new NotImplementedException();
-        }
 
-        void IServiceFlight.DestinationGroupedFlights()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetFlights(string filterType, string filterValue)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
