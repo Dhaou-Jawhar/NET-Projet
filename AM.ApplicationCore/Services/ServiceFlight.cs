@@ -450,7 +450,11 @@ namespace AM.ApplicationCore.Services
         //        .Select(Flights => Flights.FlightDate).ToList();
 
         //    return query;
-    //}
+        //}
+
+
+        //V Les méthodes d’extension
+
 
         }
 }

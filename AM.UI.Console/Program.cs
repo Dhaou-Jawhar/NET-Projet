@@ -144,6 +144,10 @@ serviceFlight.GetFlights("2022/02/01", (Flight f, String c) =>
     return f.FlightDate.Equals(c);
 });
 
+int a = 11;
+Console.WriteLine(a.add(20));
+
+
 
 
 
