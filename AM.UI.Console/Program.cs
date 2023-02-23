@@ -147,6 +147,16 @@ serviceFlight.GetFlights("2022/02/01", (Flight f, String c) =>
 int a = 11;
 Console.WriteLine(a.add(20));
 
+//V Les méthodes d’extension ( test ) 
+
+Passenger pasen = new Passenger()
+{
+    FirstName = "dhaou",
+    LastName = "jawhar"
+};
+pasen.UpperFullname();
+Console.WriteLine(pasen);
+
 
 
 
