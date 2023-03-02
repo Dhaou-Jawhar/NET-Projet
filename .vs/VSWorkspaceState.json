@@ -4,8 +4,9 @@
     "\\AM.ApplicationCore",
     "\\AM.ApplicationCore\\Domain",
     "\\AM.ApplicationCore\\Interfaces",
+    "\\AM.ApplicationCore\\Services",
     "\\AM.UI.Console"
   ],
-  "SelectedNode": "\\AM.ApplicationCore\\Domain\\Flight.cs",
+  "SelectedNode": "\\Dhaou-Jawhar-4SE5.sln",
   "PreviewInSolutionExplorer": false
 }
