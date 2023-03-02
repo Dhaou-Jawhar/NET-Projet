@@ -5,6 +5,9 @@
     "\\AM.ApplicationCore\\Domain",
     "\\AM.ApplicationCore\\Interfaces",
     "\\AM.ApplicationCore\\Services",
+    "\\AM.Infrastructure",
+    "\\AM.Infrastructure\\bin",
+    "\\AM.Infrastructure\\bin\\Debug\\net6.0",
     "\\AM.UI.Console"
   ],
   "SelectedNode": "\\Dhaou-Jawhar-4SE5.sln",
