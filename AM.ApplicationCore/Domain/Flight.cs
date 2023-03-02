@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,9 @@ namespace AM.ApplicationCore.Domain
         public int FlightId { get; set; }
         public DateTime EffectiveArrival { get; set; }
         public float EstimateDuration { get; set; }
-        public Plane plane { get; set; }
+        [ForeignKey("plane")]
+        public int ? PlaneFK { get; set; }  // ? pour le changer => nullable ( OnDelete(DeleteBehavior.SetNull/.Cascade/.Client SetNull ) 
+        public Plane ? plane { get; set; } // ? pour le changer => nullable
         public ICollection<Passenger> passengers { get; set; }
 
         public override string ToString()
