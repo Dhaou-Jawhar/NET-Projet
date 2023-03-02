@@ -9,22 +9,18 @@ namespace AM.ApplicationCore.Services
 {
     public static class PassengerExtension
     {
-        public static string UpperFullName(this Passenger passenger)
+        //V Les méthodes d’extension
+        //correction
+
+        public static void UpperFullname(this Passenger passenger)
         {
-            if (string.IsNullOrEmpty(passenger.FirstName))
-            {
-                throw new ArgumentException("not null");
-            }
+            passenger.FirstName = passenger.FirstName[0].ToString().ToUpper() + passenger.FirstName.Substring(1);
+            //to string pour changer de caracter vers chaine de caracter
+            //substring exemple : a = "hello"
+            //a.Substring(2) = llo
+            //a.Substring(2.3) = ll
+            passenger.LastName = passenger.LastName[0].ToString().ToUpper() + passenger.LastName.Substring(1);
 
-            string[] names = passenger.FirstName.Split(' ');
-
-            for (int i = 0; i < names.Length; i++)
-            {
-                names[i] = char.ToUpper(names[i][0]) + names[i].Substring(1);
-            }
-
-            return string.Join(' ', names);
         }
     }
-}
 }
