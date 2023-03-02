@@ -14,7 +14,7 @@ namespace AM.ApplicationCore.Domain
         public DateTime BirthDate { get; set; }
         [MaxLength(7) , Key]
         public int PassportNumber { get; set; }
-        [DataType(DataType.EmailAddress] //[EmailAddress]
+        [DataType(DataType.EmailAddress)] //[EmailAddress]
         public string EmailAddress { get; set; }
         [StringLength(maximumLength:25 , MinimumLength =3 , ErrorMessage ="règle pas respectées")]
         public string FirstName { get; set; }

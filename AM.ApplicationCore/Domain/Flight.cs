@@ -15,7 +15,7 @@ namespace AM.ApplicationCore.Domain
         public int FlightId { get; set; }
         public DateTime EffectiveArrival { get; set; }
         public float EstimateDuration { get; set; }
-        [ForeignKey(plane)]
+        [ForeignKey("plane")]
         public int PlaneFK { get; set; }
         public Plane plane { get; set; }
         public ICollection<Passenger> passengers { get; set; }

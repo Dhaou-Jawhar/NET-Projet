@@ -1,4 +1,5 @@
 ﻿using AM.ApplicationCore.Domain;
+using AM.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,7 @@ namespace AM.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Flight>().HasKey(f => f.FlightId);
-            modelBuilder.Entity<Flight>().ToTable("MyFlight");
-            modelBuilder.Entity<Flight>().Property(j => j.Deparature).IsRequired().HasMaxLength(100).HasColumnName("ville de depart").HasDefaultValue("TOUNES").HasColumnType("nchar");
+            modelBuilder.ApplyConfiguration(new FlightConfiguration());
         }
 
 
