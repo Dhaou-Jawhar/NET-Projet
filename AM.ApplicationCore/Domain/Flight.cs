@@ -16,8 +16,8 @@ namespace AM.ApplicationCore.Domain
         public DateTime EffectiveArrival { get; set; }
         public float EstimateDuration { get; set; }
         [ForeignKey("plane")]
-        public int PlaneFK { get; set; }
-        public Plane plane { get; set; }
+        public int ? PlaneFK { get; set; }  // ? pour le changer => nullable ( OnDelete(DeleteBehavior.SetNull/.Cascade/.Client SetNull ) 
+        public Plane ? plane { get; set; } // ? pour le changer => nullable
         public ICollection<Passenger> passengers { get; set; }
 
         public override string ToString()
