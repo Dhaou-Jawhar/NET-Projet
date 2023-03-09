@@ -15,7 +15,12 @@ namespace AM.ApplicationCore.Domain
         public string Siege { get; set; }
         public Passenger Passenger { get; set; }
         public Flight Flight { get; set; }
+
+        [ForeignKey("Flight")]
         public int FlightFK { get; set; }
+
+
+        [ForeignKey("Passenger")]
         public int PassengerPK { get; set; }
     }
 }
