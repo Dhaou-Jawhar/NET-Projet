@@ -16,16 +16,21 @@ namespace AM.ApplicationCore.Domain
         public int PassportNumber { get; set; }
         [DataType(DataType.EmailAddress)] //[EmailAddress]
         public string EmailAddress { get; set; }
-        [StringLength(maximumLength:25 , MinimumLength =3 , ErrorMessage ="règle pas respectées")]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        //[StringLength(maximumLength:25 , MinimumLength =3 , ErrorMessage ="règle pas respectées")]
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
         [MinLength(7), MaxLength(7)] // (string) [RegularExpression]
         [RegularExpression("[0-9]{8}")] // {,8} de 0->8 / {8,} de 8->infini / {8,16} de 8->16
         public string TelNumber { get; set; }
-        public ICollection<Flight> flights { get; set; }
+        //public ICollection<Flight> flights { get; set; }
+        public IList<Ticket> tickets { get; set; }
+
+        public FullName fullName { get; set; }
+
+
         public override string ToString()
         {
-            return FirstName + " " + LastName + " " + BirthDate + " " + PassportNumber + " " + EmailAddress + " " + TelNumber;
+            return BirthDate + " " + PassportNumber + " " + EmailAddress + " " + TelNumber;
         }
         //10-a)
 
@@ -42,14 +47,14 @@ namespace AM.ApplicationCore.Domain
         //}
 
         //c)
-        public bool checkProfil(string nom, string prenom, string email = null)
-        {
-            if (email == null)
-            {
-                return FirstName == nom && LastName == prenom;
-            }
-            return FirstName == nom && LastName == prenom && EmailAddress == email;
-        }
+        //public bool checkProfil(string nom, string prenom, string email = null)
+        //{
+        //    if (email == null)
+        //    {
+        //        return FirstName == nom && LastName == prenom;
+        //    }
+        //    return FirstName == nom && LastName == prenom && EmailAddress == email;
+        //}
         //11)
         public virtual void PassengerType()
         {

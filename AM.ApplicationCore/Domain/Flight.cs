@@ -18,7 +18,9 @@ namespace AM.ApplicationCore.Domain
         [ForeignKey("plane")]
         public int ? PlaneFK { get; set; }  // ? pour le changer => nullable ( OnDelete(DeleteBehavior.SetNull/.Cascade/.Client SetNull ) 
         public Plane ? plane { get; set; } // ? pour le changer => nullable
-        public ICollection<Passenger> passengers { get; set; }
+        //public ICollection<Passenger> passengers { get; set; }
+        public IList<Ticket> tickets { get; set; }
+
 
         public override string ToString()
         {

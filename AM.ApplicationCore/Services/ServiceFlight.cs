@@ -185,15 +185,15 @@ namespace AM.ApplicationCore.Services
         }
 
         //Ex 14
-        List<Traveller> SeniorTravellers(Flight flight)
-        {
-            var query = flight.passengers.OfType<Traveller>()
-                    //.Where(p => p is Traveller)   // bech yraja3li liste passenger , donc nbadeloha list traveller
-                    .OrderBy(p => p.BirthDate).Take(3).ToList();
+        //List<Traveller> SeniorTravellers(Flight flight)
+        //{
+        //    var query = flight.passengers.OfType<Traveller>()
+        //            //.Where(p => p is Traveller)   // bech yraja3li liste passenger , donc nbadeloha list traveller
+        //            .OrderBy(p => p.BirthDate).Take(3).ToList();
 
-            List<Passenger> p = new List<Passenger>(query);   // cast implicite  ( ken bech n5aliw e return List Passenger )
-            return query;
-        }
+        //    List<Passenger> p = new List<Passenger>(query);   // cast implicite  ( ken bech n5aliw e return List Passenger )
+        //    return query;
+        //}
 
         //Ex 15
         void DestinationGroupedFlights()
